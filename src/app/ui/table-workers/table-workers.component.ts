@@ -10,6 +10,7 @@ export class TableWorkersComponent implements OnInit {
 
   @Input() title: string
   @Input() workers: MyWorker[] = [];
+  @Input() searchStr: string;
   @Output() deleteWorker = new EventEmitter<number>();
   @Output() editWorkerId = new EventEmitter<number>();
   

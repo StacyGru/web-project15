@@ -13,31 +13,42 @@
   (cancelEdit)="onCancelEdit()"
   [workerData]="workerData"></app-editform-worker>
 
-  <app-table-workers
-  [title]="'Программисты'"
-  [workers]="getByType(MyWorkerType.programmer)"
-  (deleteWorker)="onDeleteWorker($event)"
+  <div class="row my-3">
+    <div class="col-12">
+      <h5>Фильтр по имени и фамилии</h5>
+      <input type="search" class="form-control" placeholder="Имя и/или фамилия" [(ngModel)]="searchStr" />
+    </div>
+  </div>
+
+  <app-table-workers 
+  [title]="'Программисты'" 
+  [workers]="getByType(MyWorkerType.programmer)" 
+  [searchStr]="searchStr"
+  (deleteWorker)="onDeleteById($event)"
   (editWorkerId)="onEditById($event)"
   ></app-table-workers>
 
-  <app-table-workers
-  [title]="'Дизайнеры'"
-  [workers]="getByType(MyWorkerType.designer)"
-  (deleteWorker)="onDeleteWorker($event)"
+  <app-table-workers 
+  [title]="'Дизайнеры'" 
+  [workers]="getByType(MyWorkerType.designer)" 
+  [searchStr]="searchStr"
+  (deleteWorker)="onDeleteById($event)"
   (editWorkerId)="onEditById($event)"
   ></app-table-workers>
 
   <app-table-workers
   [title]="'Рекламщики'"
   [workers]="getByType(MyWorkerType.copywriter)"
-  (deleteWorker)="onDeleteWorker($event)"
+  [searchStr]="searchStr"
+  (deleteWorker)="onDeleteById($event)"
   (editWorkerId)="onEditById($event)"
   ></app-table-workers>
 
-  <app-table-workers
-  [title]="'Менеджеры'"
-  [workers]="getByType(MyWorkerType.manager)"
-  (deleteWorker)="onDeleteWorker($event)"
+  <app-table-workers 
+  [title]="'Менеджеры'" 
+  [workers]="getByType(MyWorkerType.manager)" 
+  [searchStr]="searchStr"
+  (deleteWorker)="onDeleteById($event)"
   (editWorkerId)="onEditById($event)"
   ></app-table-workers>
 </div>

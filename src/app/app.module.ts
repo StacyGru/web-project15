@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TextMaskModule } from 'angular2-text-mask';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FiltersPipe } from './shared/pipes/filters.pipe';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TableWorkersComponent,
     AddformWorkerComponent,
     EditformWorkerComponent,
+    FiltersPipe,
   ],
   imports: [
     BrowserModule, 
