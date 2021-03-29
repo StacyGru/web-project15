@@ -1,0 +1,64 @@
+<div class="row mb-3">
+
+    <div class="col-12">
+        <h5>Редактировать сотрудника</h5>
+    </div>
+
+    <form [formGroup]="EditForm" (ngSubmit)="onEditWorker()">
+
+        <div class="col-12 mb-2">
+            <input type="text" class="form-control" placeholder="Имя"
+            formControlName="workerName">
+        </div>
+
+            <div class="alert alert-danger mb-3"
+            *ngIf="EditForm.controls['workerName'].invalid && EditForm.controls['workerName'].touched">
+            Введите имя!
+            </div>
+    
+        <div class="col-12 mb-2">   
+            <input type="text" class="form-control" placeholder="Фамилия"
+            formControlName="workerSurname">
+        </div>
+
+            <div class="alert alert-danger mb-3"
+            *ngIf="EditForm.controls['workerSurname'].invalid && EditForm.controls['workerSurname'].touched">
+            Введите фамилию!
+            </div>
+
+        <div class="col-12 mb-2">
+        <input type="text" class="form-control" placeholder="Телефон"
+        [textMask]="{mask: mask}"
+        formControlName="workerPhone">
+        </div>
+
+            <div class="alert alert-danger mb-3"
+            *ngIf="EditForm.controls['workerPhone'].invalid && EditForm.controls['workerPhone'].touched">
+            Телефон не введён или введён неверно!
+            </div>            
+
+        <div class="col-12 mb-2">
+            <select class="custom-select"
+            formControlName="workerType">
+                <option [ngValue]="MyWorkerType.programmer">Программист</option>
+                <option [ngValue]="MyWorkerType.designer">Дизайнер</option>
+                <option [ngValue]="MyWorkerType.copywriter">Рекламщик</option>
+                <option [ngValue]="MyWorkerType.manager">Менеджер</option>
+            </select>
+        </div>
+    
+        <div class="col-12 mb-2">
+            <button class="btn btn-outline-warning btn-sm" type="submit"
+            [disabled]="EditForm.invalid"
+            >Сохранить</button>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-outline-secondary btn-sm"
+            (click)="closeEdit()"
+            >Отмена</button>
+        </div>
+
+    </form>
+
+</div>

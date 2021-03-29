@@ -1,0 +1,58 @@
+<div class="row mb-3">
+
+    <div class="col-12">
+        <h5>Добавить сотрудника</h5>
+    </div>
+
+    <form [formGroup]="AddForm" (ngSubmit)="onAddWorker()">
+
+        <div class="col-12 mb-2">
+            <input type="text" class="form-control" placeholder="Имя"
+            formControlName="workerName">
+        </div>
+
+            <div class="alert alert-danger mb-3"
+            *ngIf="AddForm.controls['workerName'].invalid && AddForm.controls['workerName'].touched">
+            Введите имя!
+            </div>
+
+        <div class="col-12 mb-2">
+            <input type="text" class="form-control" placeholder="Фамилия"
+            formControlName="workerSurname">
+        </div>
+
+            <div class="alert alert-danger mb-3"
+            *ngIf="AddForm.controls['workerSurname'].invalid && AddForm.controls['workerSurname'].touched">
+            Введите фамилию!
+            </div>
+
+        <div class="col-12  mb-2">
+            <input type="text" class="form-control" placeholder="Телефон" 
+            formControlName="workerPhone"
+            [textMask]="{mask: mask}">
+        </div>
+
+            <div class="alert alert-danger mb-3"
+            *ngIf="AddForm.controls['workerPhone'].invalid && AddForm.controls['workerPhone'].touched">
+            Телефон не введён или введён неверно!
+            </div>
+
+        <div class="col-12 mb-2">
+            <select class="custom-select"
+            formControlName="workerType">
+                <option [ngValue]="MyWorkerType.programmer">Программист</option>
+                <option [ngValue]="MyWorkerType.designer">Дизайнер</option>
+                <option [ngValue]="MyWorkerType.copywriter">Рекламщик</option>
+                <option [ngValue]="MyWorkerType.manager">Менеджер</option>
+            </select>
+        </div>
+        
+        <div class="col-12">
+            <button class="btn btn-outline-success btn-sm" type="submit"
+            [disabled]="AddForm.invalid"
+            >Добавить</button>
+        </div>
+
+    </form>
+
+</div>
